@@ -9,11 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -31,7 +29,7 @@ public class MemberService {
                 throw new IllegalStateException("이미 존재하는 회원입니다.");
             });
     }
-    public List<Member> findMember() {
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
     public Optional<Member> findOne(Long memberId) {
